@@ -8,8 +8,11 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using PromotionEngine.Processor;
+using PromotionEngine.Processor.Interface;
 
 namespace PromotionEngine
 {
@@ -26,6 +29,7 @@ namespace PromotionEngine
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.TryAddTransient<ISKUItemsProcessor, SKUItemsProcessor>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
