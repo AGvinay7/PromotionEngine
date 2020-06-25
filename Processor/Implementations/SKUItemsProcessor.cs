@@ -9,11 +9,23 @@ namespace PromotionEngine.Processor
 {
     public class SKUItemsProcessor : ISKUItemsProcessor
     {
+        private IBillHandler _billHandler;
+
+        public SKUItemsProcessor(IBillHandler billHandler)
+        {
+            _billHandler = billHandler;
+        }
+
         public object AddItemsToCart(IList<AddItemRequestModel> addItemRequestModel)
         {
-            var input = addItemRequestModel;
+            double TotalAmount = 0;
 
-            return new object();
+            foreach(var item in addItemRequestModel)
+            {
+                TotalAmount = _billHandler.GenerateBill(item);
+            }
+
+            return TotalAmount;
         }
     }
 }
