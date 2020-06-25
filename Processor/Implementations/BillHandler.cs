@@ -10,29 +10,20 @@ namespace PromotionEngine.Processor.Implementations
 {
     public class BillHandler : IBillHandler
     {
-        private object _activePromotions;
-        AddItemResponseModel Bill = new AddItemResponseModel();
 
-
-
-        public BillHandler(IActivePromotions activePromotions)
-        {
-            _activePromotions = activePromotions;
-        }
-
-
+        public AddItemResponseModel Bill = new AddItemResponseModel();
+        private bool isPromoApplied;
+        private bool Flag = false;
 
         public AddItemResponseModel GenerateBill(AddItemRequestModel item)
         {
 
             double unitPrice = GetUnitPriceOfItem(item);
-            Bill.Total = CheckPromoDiscount(unitPrice, item);
+            Bill.Total = CheckPromoDiscount(unitPrice, item);           
             Bill.ItemsPurchased.Add(item.ItemType);
+            Bill.IsPromoApplied = isPromoApplied;
             return Bill;
         }
-
-
-
 
         private static double GetUnitPriceOfItem(AddItemRequestModel item)
         {
@@ -42,18 +33,17 @@ namespace PromotionEngine.Processor.Implementations
             return unitPrice;
         }
 
-
-
-
-        private double CheckPromoDiscount(double unitPrice, AddItemRequestModel item) // 50 , A
+        private double CheckPromoDiscount(double unitPrice, AddItemRequestModel item)
         {
             var promotionForItem = new DiscountsFactory().GetPromotions(item.ItemType);
-
-            Bill.IsPromoApplied = item.ItemQuantity >= promotionForItem.NoOfItems;            
-            var discountedAmt = (item.ItemQuantity / promotionForItem.NoOfItems) * promotionForItem.DiscountOffered;
-            var additionalAmount = (item.ItemQuantity % promotionForItem.NoOfItems) * unitPrice;
-            Bill.Date = DateTime.Now;
-            return discountedAmt + additionalAmount;
+            var OnDiscountPrice = (item.ItemQuantity / promotionForItem.NoOfItems) * promotionForItem.DiscountOffered;
+            if(!Flag)
+            {
+                isPromoApplied = OnDiscountPrice > 0;
+                Flag = true;
+            }
+            var OffDiscountPrice = (item.ItemQuantity % promotionForItem.NoOfItems) * unitPrice;
+            return OnDiscountPrice + OffDiscountPrice;
         }
     }
 }
