@@ -16,16 +16,16 @@ namespace PromotionEngine.Processor
             _billHandler = billHandler;
         }
 
-        public object AddItemsToCart(IList<AddItemRequestModel> addItemRequestModel)
+        public AddItemResponseModel AddItemsToCart(IList<AddItemRequestModel> addItemRequestModel)
         {
-            double TotalAmount = 0;
-
-            foreach(var item in addItemRequestModel)
+            var response = new AddItemResponseModel();
+            double SubTotal = 0.0;
+            foreach (var item in addItemRequestModel)
             {
-                TotalAmount = _billHandler.GenerateBill(item);
+                SubTotal += _billHandler.GenerateBill(item).Total;
             }
-
-            return TotalAmount;
+            response.Total = SubTotal;
+            return response;
         }
     }
 }

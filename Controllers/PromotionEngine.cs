@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+//using System.Web.Http;
 using Microsoft.AspNetCore.Mvc;
+//using Microsoft.AspNetCore.Mvc;
 using PromotionEngine.Models;
 using PromotionEngine.Processor.Interface;
 
@@ -52,12 +54,11 @@ namespace PromotionEngine.Controllers
         /// <response code="500">Internal Server Error.</response>
         [HttpPost]
         [Route("api/AddSKUItems")]
-        public object AddSKUItems([FromBody] IList<AddItemRequestModel> addItemRequestModel)
+        public ActionResult<AddItemResponseModel> AddSKUItems([FromBody] IList<AddItemRequestModel> addItemRequestModel)
         {
             if(addItemRequestModel.Count != 0)
             {
-                var result = _sKUItemsProcessor.AddItemsToCart(addItemRequestModel);
-                return result;
+                return _sKUItemsProcessor.AddItemsToCart(addItemRequestModel);               
             }
             else
             {

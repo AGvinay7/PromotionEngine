@@ -8,7 +8,7 @@ namespace PromotionEngine.Processor.Interface
 {
     public interface ISKUItemsProcessor
     {
-        object AddItemsToCart(IList<AddItemRequestModel> addItemRequestModel);
+        AddItemResponseModel AddItemsToCart(IList<AddItemRequestModel> addItemRequestModel);
 
     }
 }

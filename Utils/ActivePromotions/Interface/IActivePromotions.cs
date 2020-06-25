@@ -8,6 +8,6 @@ namespace PromotionEngine.Utils.ActivePromotions.Interface
     public interface IActivePromotions
     {
         int NoOfItems { get; set; }
-        double DiscountOffered { get; set; }        
+        double DiscountOffered { get; set; }
     }
 }

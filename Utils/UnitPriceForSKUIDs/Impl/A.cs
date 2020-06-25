@@ -8,6 +8,7 @@ namespace PromotionEngine.Utils.UnitPriceForSKUIDs.Impl
         public A()
         {
             this.UnitPrice = 50;
+            this.UnitName = "A";
         }
         public A(double UnitPrice)
         {

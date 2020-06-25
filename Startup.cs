@@ -12,7 +12,10 @@ using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using PromotionEngine.Processor;
+using PromotionEngine.Processor.Implementations;
 using PromotionEngine.Processor.Interface;
+using PromotionEngine.Utils.ActivePromotions.Impl;
+using PromotionEngine.Utils.ActivePromotions.Interface;
 
 namespace PromotionEngine
 {
@@ -30,6 +33,10 @@ namespace PromotionEngine
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.TryAddTransient<ISKUItemsProcessor, SKUItemsProcessor>();
+            services.TryAddTransient<IActivePromotions, Discount_A>();
+            services.TryAddTransient<IBillHandler, BillHandler>();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

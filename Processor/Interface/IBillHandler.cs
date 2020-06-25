@@ -8,6 +8,6 @@ namespace PromotionEngine.Processor.Interface
 {
     public interface IBillHandler
     {
-        double GenerateBill(AddItemRequestModel item);
+        AddItemResponseModel GenerateBill(AddItemRequestModel item);
     }
 }
