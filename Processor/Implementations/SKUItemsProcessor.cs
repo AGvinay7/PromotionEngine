@@ -1,12 +1,12 @@
-﻿using PromotionEngine.Models;
-using PromotionEngine.Processor.Interface;
-using PromotionEngine.Utils.Constants;
+﻿using PromotionEngines.Models;
+using PromotionEngines.Processor.Interface;
+using PromotionEngines.Utils.Constants;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PromotionEngine.Processor
+namespace PromotionEngines.Processor
 {
     public class SKUItemsProcessor : ISKUItemsProcessor
     {

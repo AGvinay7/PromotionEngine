@@ -11,13 +11,13 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using PromotionEngine.Processor;
-using PromotionEngine.Processor.Implementations;
-using PromotionEngine.Processor.Interface;
-using PromotionEngine.Utils.ActivePromotions.Impl;
-using PromotionEngine.Utils.ActivePromotions.Interface;
+using PromotionEngines.Processor;
+using PromotionEngines.Processor.Implementations;
+using PromotionEngines.Processor.Interface;
+using PromotionEngines.Utils.ActivePromotions.Impl;
+using PromotionEngines.Utils.ActivePromotions.Interface;
 
-namespace PromotionEngine
+namespace PromotionEngines
 {
     public class Startup
     {

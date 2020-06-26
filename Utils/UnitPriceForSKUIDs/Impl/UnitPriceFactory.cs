@@ -1,10 +1,10 @@
-﻿using PromotionEngine.Utils.UnitPriceForSKUIDs.Interface;
+﻿using PromotionEngines.Utils.UnitPriceForSKUIDs.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PromotionEngine.Utils.UnitPriceForSKUIDs.Impl
+namespace PromotionEngines.Utils.UnitPriceForSKUIDs.Impl
 {
     public class UnitPriceFactory
     {

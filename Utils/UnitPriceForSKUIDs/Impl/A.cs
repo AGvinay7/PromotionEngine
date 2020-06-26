@@ -1,5 +1,5 @@
-﻿using PromotionEngine.Utils.UnitPriceForSKUIDs.Interface;
-namespace PromotionEngine.Utils.UnitPriceForSKUIDs.Impl
+﻿using PromotionEngines.Utils.UnitPriceForSKUIDs.Interface;
+namespace PromotionEngines.Utils.UnitPriceForSKUIDs.Impl
 {
     public class A : IUnitPrice
     {

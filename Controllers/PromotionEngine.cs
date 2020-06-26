@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-//using System.Web.Http;
+﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
-//using Microsoft.AspNetCore.Mvc;
-using PromotionEngine.Models;
-using PromotionEngine.Processor.Interface;
+using PromotionEngines.Models;
+using PromotionEngines.Processor.Interface;
 
-namespace PromotionEngine.Controllers
+namespace PromotionEngines.Controllers
 {
-    
+
     [ApiController]
     public class PromotionEngine : ControllerBase
     {
@@ -56,9 +51,9 @@ namespace PromotionEngine.Controllers
         [Route("api/AddSKUItems")]
         public ActionResult<AddItemResponseModel> AddSKUItems([FromBody] IList<AddItemRequestModel> addItemRequestModel)
         {
-            if(addItemRequestModel.Count != 0)
+            if (addItemRequestModel.Count != 0)
             {
-                return _sKUItemsProcessor.AddItemsToCart(addItemRequestModel);               
+                return _sKUItemsProcessor.AddItemsToCart(addItemRequestModel);
             }
             else
             {

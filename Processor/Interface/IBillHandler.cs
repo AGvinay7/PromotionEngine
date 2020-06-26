@@ -1,10 +1,10 @@
-﻿using PromotionEngine.Models;
+﻿using PromotionEngines.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PromotionEngine.Processor.Interface
+namespace PromotionEngines.Processor.Interface
 {
     public interface IBillHandler
     {

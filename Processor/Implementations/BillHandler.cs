@@ -1,12 +1,12 @@
-﻿using PromotionEngine.Models;
-using PromotionEngine.Processor.Interface;
-using PromotionEngine.Utils.ActivePromotions.Impl;
-using PromotionEngine.Utils.ActivePromotions.Interface;
-using PromotionEngine.Utils.UnitPriceForSKUIDs.Impl;
-using PromotionEngine.Utils.UnitPriceForSKUIDs.Interface;
+﻿using PromotionEngines.Models;
+using PromotionEngines.Processor.Interface;
+using PromotionEngines.Utils.ActivePromotions.Impl;
+using PromotionEngines.Utils.ActivePromotions.Interface;
+using PromotionEngines.Utils.UnitPriceForSKUIDs.Impl;
+using PromotionEngines.Utils.UnitPriceForSKUIDs.Interface;
 using System;
 
-namespace PromotionEngine.Processor.Implementations
+namespace PromotionEngines.Processor.Implementations
 {
     public class BillHandler : IBillHandler
     {

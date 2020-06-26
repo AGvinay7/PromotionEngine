@@ -1,11 +1,11 @@
-﻿using PromotionEngine.Models;
-using PromotionEngine.Utils.ActivePromotions.Interface;
+﻿using PromotionEngines.Models;
+using PromotionEngines.Utils.ActivePromotions.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PromotionEngine.Utils.ActivePromotions.Impl
+namespace PromotionEngines.Utils.ActivePromotions.Impl
 {
     public class DiscountsFactory
     {

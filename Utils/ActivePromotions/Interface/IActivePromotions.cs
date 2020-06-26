@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PromotionEngine.Utils.ActivePromotions.Interface
+namespace PromotionEngines.Utils.ActivePromotions.Interface
 {
     public interface IActivePromotions
     {

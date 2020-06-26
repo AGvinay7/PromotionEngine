@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PromotionEngine.Utils.UnitPriceForSKUIDs.Interface
+namespace PromotionEngines.Utils.UnitPriceForSKUIDs.Interface
 {
     public interface IUnitPrice
     {

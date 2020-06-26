@@ -1,5 +1,5 @@
 ﻿
-namespace PromotionEngine.Models
+namespace PromotionEngines.Models
 {
     public class AddItemRequestModel
     {

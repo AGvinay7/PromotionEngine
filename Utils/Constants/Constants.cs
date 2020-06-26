@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PromotionEngine.Utils.Constants
+namespace PromotionEngines.Utils.Constants
 {
     public class Constants
     {

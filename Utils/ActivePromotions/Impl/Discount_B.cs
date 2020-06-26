@@ -1,10 +1,10 @@
-﻿using PromotionEngine.Utils.ActivePromotions.Interface;
+﻿using PromotionEngines.Utils.ActivePromotions.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PromotionEngine.Utils.ActivePromotions.Impl
+namespace PromotionEngines.Utils.ActivePromotions.Impl
 {
     public class Discount_B : IActivePromotions
     {
