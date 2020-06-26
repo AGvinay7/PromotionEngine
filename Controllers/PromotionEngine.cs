@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
+using PromotionEngine.Models;
 using PromotionEngines.Models;
 using PromotionEngines.Processor.Interface;
 
@@ -7,38 +8,38 @@ namespace PromotionEngines.Controllers
 {
 
     [ApiController]
-    public class PromotionEngine : ControllerBase
+    public class PromotionEngineController : ControllerBase
     {
         private ISKUItemsProcessor _sKUItemsProcessor;
-        public PromotionEngine(ISKUItemsProcessor sKUItemsProcessor)
+        public PromotionEngineController(ISKUItemsProcessor sKUItemsProcessor)
         {
             _sKUItemsProcessor = sKUItemsProcessor;
         }
 
         /// <summary>
-        /// Get All items in the cart
+        /// Active Promotions for an Item
         /// </summary>
-        /// <returns>all items in the cart</returns>
+        /// <returns>Active Promotions for an Item</returns>
         /// <response code="200">OK</response>
         /// <response code="500">Internal Server Error.</response>
         [HttpGet]
-        [Route("api/GetAllItems")]
-        public ActionResult<IEnumerable<string>> GetAllItems()
+        [Route("api/GetActivePromotions/{itemName}")]
+        public ActionResult<ActivePromotionsModel> GetAllActivePromotions(string itemName)
         {
-            return new string[] { "value1", "value2" };
+           return string.IsNullOrEmpty(itemName) ? null : _sKUItemsProcessor.GetActivePromotions(itemName);
         }
 
         /// <summary>
-        /// Get Requested item in the cart
+        /// Get Item details by itemName
         /// </summary>
-        /// <returns> Get Requested item in the cart</returns>
+        /// <returns> Get Item details by itemName</returns>
         /// <response code="200">OK</response>
         /// <response code="500">Internal Server Error.</response>
         [HttpGet]
         [Route("api/GetSKUItem/{id}")]
-        public ActionResult<string> GetSKUItem(int id)
+        public ActionResult<SKUItem> GetSKUItem(string id)
         {
-            return "value";
+            return string.IsNullOrEmpty(id) ? null : _sKUItemsProcessor.GetSKUItem(id);
         }
 
         /// <summary>

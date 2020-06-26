@@ -1,6 +1,10 @@
-﻿using PromotionEngines.Models;
+﻿using Microsoft.AspNetCore.Mvc;
+using PromotionEngine.Models;
+using PromotionEngines.Models;
 using PromotionEngines.Processor.Interface;
+using PromotionEngines.Utils.ActivePromotions.Impl;
 using PromotionEngines.Utils.Constants;
+using PromotionEngines.Utils.UnitPriceForSKUIDs.Impl;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,6 +42,26 @@ namespace PromotionEngines.Processor
             response.Total = SubTotal;
             response.Date = DateTime.Now;
             return response;
+        }
+
+        public ActionResult<ActivePromotionsModel> GetActivePromotions(string itemName)
+        {
+            var returnObject = new ActivePromotionsModel();
+            var promotionForItem = new DiscountsFactory().GetPromotions(itemName);
+            returnObject.DiscountRunning = promotionForItem.DiscountOffered;
+            returnObject.ItemName = itemName;
+            returnObject.NoOfItems = promotionForItem.NoOfItems;
+            return returnObject;
+        }
+
+        public ActionResult<SKUItem> GetSKUItem(string id)
+        {
+            var returnObject = new SKUItem();
+            var SKUitem = new UnitPriceFactory().GetUnitPrice(id);
+            returnObject.UnitPrice = SKUitem.GetUnitPrice();
+            returnObject.UnitName = SKUitem.GetUnitName();
+            return returnObject;
+
         }
     }
 }

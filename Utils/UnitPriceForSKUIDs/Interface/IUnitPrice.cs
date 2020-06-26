@@ -8,5 +8,7 @@ namespace PromotionEngines.Utils.UnitPriceForSKUIDs.Interface
     public interface IUnitPrice
     {
         double GetUnitPrice();
+        string GetUnitName();
+
     }
 }

@@ -25,6 +25,10 @@ namespace PromotionEngines.Utils.UnitPriceForSKUIDs.Impl
         {
             return this.UnitPrice;
         }
+        public string GetUnitName()
+        {
+            return this.UnitName;
+        }
 
     }
 }
