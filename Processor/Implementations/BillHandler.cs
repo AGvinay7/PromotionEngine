@@ -1,10 +1,10 @@
 ﻿using PromotionEngines.Models;
 using PromotionEngines.Processor.Interface;
 using PromotionEngines.Utils.ActivePromotions.Impl;
-using PromotionEngines.Utils.ActivePromotions.Interface;
 using PromotionEngines.Utils.UnitPriceForSKUIDs.Impl;
 using PromotionEngines.Utils.UnitPriceForSKUIDs.Interface;
-using System;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace PromotionEngines.Processor.Implementations
 {
@@ -19,7 +19,15 @@ namespace PromotionEngines.Processor.Implementations
         {
 
             double unitPrice = GetUnitPriceOfItem(item);
-            Bill.Total = CheckPromoDiscount(unitPrice, item);           
+            if (item.ItemType.Equals("C") || item.ItemType.Equals("D"))
+            {
+                Bill.Total = unitPrice * item.ItemQuantity;
+            }
+            else
+            {
+                Bill.Total = CheckPromoDiscount(unitPrice, item);
+            }
+
             Bill.ItemsPurchased.Add(item.ItemType);
             Bill.IsPromoApplied = isPromoApplied;
             return Bill;
@@ -37,7 +45,7 @@ namespace PromotionEngines.Processor.Implementations
         {
             var promotionForItem = new DiscountsFactory().GetPromotions(item.ItemType);
             var OnDiscountPrice = (item.ItemQuantity / promotionForItem.NoOfItems) * promotionForItem.DiscountOffered;
-            if(!Flag)
+            if (!Flag)
             {
                 isPromoApplied = OnDiscountPrice > 0;
                 Flag = true;
@@ -45,5 +53,28 @@ namespace PromotionEngines.Processor.Implementations
             var OffDiscountPrice = (item.ItemQuantity % promotionForItem.NoOfItems) * unitPrice;
             return OnDiscountPrice + OffDiscountPrice;
         }
+
+        public double GenerateBillForCAndD(IList<AddItemRequestModel> items)
+        {
+            var promotionForItem = new DiscountsFactory().GetPromotions(items.FirstOrDefault().ItemType);
+            var minimumCommonQtyinBoth = items.Select(x => x.ItemQuantity).Min();
+            var OnDiscountPrice = minimumCommonQtyinBoth * promotionForItem.DiscountOffered;
+            if (!Flag)
+            {
+                isPromoApplied = OnDiscountPrice > 0;
+                Flag = true;
+            }
+
+            var itemWithMoreQty = items.Where(x => x.ItemQuantity > minimumCommonQtyinBoth);
+
+            var unitPrice = GetUnitPriceOfItem(itemWithMoreQty.FirstOrDefault());
+
+            var OffDiscountPrice = (itemWithMoreQty.FirstOrDefault().ItemQuantity - minimumCommonQtyinBoth) * unitPrice;
+
+            return OffDiscountPrice + OnDiscountPrice;
+
+        }
+
+
     }
 }

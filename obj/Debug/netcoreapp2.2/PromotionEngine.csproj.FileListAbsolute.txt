@@ -6,7 +6,6 @@ C:\Codebase\PromotionEngine\PromotionEngine\bin\Debug\netcoreapp2.2\PromotionEng
 C:\Codebase\PromotionEngine\PromotionEngine\bin\Debug\netcoreapp2.2\PromotionEngine.runtimeconfig.dev.json
 C:\Codebase\PromotionEngine\PromotionEngine\bin\Debug\netcoreapp2.2\PromotionEngine.dll
 C:\Codebase\PromotionEngine\PromotionEngine\bin\Debug\netcoreapp2.2\PromotionEngine.pdb
-C:\Codebase\PromotionEngine\PromotionEngine\obj\Debug\netcoreapp2.2\PromotionEngine.csprojAssemblyReference.cache
 C:\Codebase\PromotionEngine\PromotionEngine\obj\Debug\netcoreapp2.2\PromotionEngine.RazorAssemblyInfo.cache
 C:\Codebase\PromotionEngine\PromotionEngine\obj\Debug\netcoreapp2.2\PromotionEngine.RazorAssemblyInfo.cs
 C:\Codebase\PromotionEngine\PromotionEngine\obj\Debug\netcoreapp2.2\PromotionEngine.AssemblyInfoInputs.cache
@@ -14,3 +13,4 @@ C:\Codebase\PromotionEngine\PromotionEngine\obj\Debug\netcoreapp2.2\PromotionEng
 C:\Codebase\PromotionEngine\PromotionEngine\obj\Debug\netcoreapp2.2\PromotionEngine.RazorTargetAssemblyInfo.cache
 C:\Codebase\PromotionEngine\PromotionEngine\obj\Debug\netcoreapp2.2\PromotionEngine.dll
 C:\Codebase\PromotionEngine\PromotionEngine\obj\Debug\netcoreapp2.2\PromotionEngine.pdb
+C:\Codebase\PromotionEngine\PromotionEngine\obj\Debug\netcoreapp2.2\PromotionEngine.csprojAssemblyReference.cache

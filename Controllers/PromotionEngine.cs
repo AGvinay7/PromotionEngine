@@ -26,7 +26,7 @@ namespace PromotionEngines.Controllers
         [Route("api/GetActivePromotions/{itemName}")]
         public ActionResult<ActivePromotionsModel> GetAllActivePromotions(string itemName)
         {
-           return string.IsNullOrEmpty(itemName) ? null : _sKUItemsProcessor.GetActivePromotions(itemName);
+            return string.IsNullOrEmpty(itemName) ? null : _sKUItemsProcessor.GetActivePromotions(itemName);
         }
 
         /// <summary>

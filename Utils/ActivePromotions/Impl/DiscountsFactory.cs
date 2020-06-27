@@ -1,9 +1,5 @@
-﻿using PromotionEngines.Models;
+﻿using PromotionEngine.Utils.ActivePromotions.Impl;
 using PromotionEngines.Utils.ActivePromotions.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace PromotionEngines.Utils.ActivePromotions.Impl
 {
@@ -14,7 +10,9 @@ namespace PromotionEngines.Utils.ActivePromotions.Impl
             switch (type)
             {
                 case "A": return new Discount_A();
-                case "B": return new Discount_B();            
+                case "B": return new Discount_B(); 
+                case "C": return new Discount_CD();
+                case "D": return new Discount_CD(); // promotion for both C and D are same 
 
                 default: break;
             }
